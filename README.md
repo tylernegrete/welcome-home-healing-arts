@@ -1,4 +1,3 @@
-[README.md.txt](https://github.com/user-attachments/files/23351166/README.md.txt)
 # Welcome HΩme Healing Arts — Website
 
 ## Edit the Site
