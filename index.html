@@ -4,154 +4,157 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome HΩme Healing Arts</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Subtle page glow -->
-  <div class="ambient-glow" aria-hidden="true"></div>
+  <!-- Candle flicker & embers background layers -->
+  <div class="bg-flicker" aria-hidden="true"></div>
+  <div class="bg-embers" aria-hidden="true" id="embers"></div>
 
-  <!-- ======= HERO / BANNER ======= -->
-  <header class="hero">
-    <div class="banner">
-      <div class="logo-wrap">
-        <img src="WHlogo.png" alt="Welcome HΩme Healing Arts logo" class="logo" />
-        <!-- Candle halo behind logo -->
-        <div class="candle-halo" aria-hidden="true"></div>
-      </div>
-
-      <div class="hero-text">
-        <h1>WELCOME H<span class="omega">Ω</span>ME<br/>HEALING ARTS</h1>
-        <p class="lead">Awaken your spirit • Restore balance • Remember Love</p>
-
-        <div class="cta-row">
-          <a class="btn" href="https://calendly.com/tylernegrete" target="_blank" rel="noopener">Book a Session</a>
-          <a class="btn ghost" href="#intro">Watch Intro</a>
-        </div>
-      </div>
-
-      <!-- gentle sparkles -->
-      <div class="sparkle-field" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wrap narrow">
+      <nav class="topbar">
+        <a href="#intro">Welcome</a>
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#book">Book</a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- ======= INTRO ======= -->
-    <section id="intro" class="intro section">
-      <div class="wrap">
-        <h2>Welcome to the Sanctuary</h2>
-        <p class="intro-text">
-          Welcome HΩme Healing Arts is a sacred space to remember your wholeness.
-          We weave intuitive massage, energy blessings, and Internal Family Systems work
-          into a grounded, loving practice attuned to body and spirit.
-        </p>
-        <div class="video-wrap">
-          <!-- Replace the src with your YouTube/Vimeo embed link -->
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Welcome HΩme Intro Video" allowfullscreen></iframe>
-        </div>
+  <!-- HERO / BANNER -->
+  <section class="hero">
+    <div class="wrap narrow">
+      <figure class="banner">
+        <!-- Replace banner.png if you kept the original filename with spaces -->
+        <img src="banner.png" alt="WELCOME HΩME HEALING ARTS banner" />
+      </figure>
+
+      <div class="controls">
+        <button id="soundToggle" class="btn">🔊 Candle crackle: Off</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======= SERVICES ======= -->
-    <section id="services" class="services section">
-      <div class="wrap">
-        <h2>Services</h2>
-        <div class="grid">
-          <article class="card">
-            <div class="icon">
-              <!-- energy icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2v20M2 12h20" stroke="#0e0b05" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="content">
-              <h3>60-Minute Energy Healing</h3>
-              <p>Gentle energetic alignment with light massage as guided. Restores flow, clarity, and calm.</p>
-              <small>In-person · Sliding scale available</small>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="icon">
-              <!-- IFS icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="8" r="3" fill="#0e0b05" opacity="0.12"/>
-                <path d="M5 20c2.5-3 6.5-5 11-5" stroke="#0e0b05" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="content">
-              <h3>90-Minute IFS + Energy</h3>
-              <p>Guided Internal Family Systems parts work blended with energy healing for deep integration.</p>
-              <small>In-person · Holistic mind–body container</small>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="icon">
-              <!-- massage icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="6" width="18" height="12" rx="3" fill="#0e0b05" opacity="0.08"/>
-                <path d="M7 10h10" stroke="#0e0b05" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="content">
-              <h3>Massage + Energy Healing</h3>
-              <p>60 or 90 minutes of therapeutic massage infused with subtle energy clearing and nervous-system soothing.</p>
-              <small>In-person · Custom to your body</small>
-            </div>
-          </article>
-        </div>
+  <!-- INTRO + VIDEO -->
+  <section id="intro" class="section">
+    <div class="wrap narrow">
+      <h2>Welcome</h2>
+      <p class="lead">
+        Welcome HΩme Healing Arts is a sacred, heart-centered space to remember your wholeness.
+        We weave intuitive massage, energy blessings, and Internal Family Systems work into a grounded,
+        loving practice attuned to body and spirit.
+      </p>
+      <div class="video">
+        <!-- Swap YOUR_VIDEO_ID with your YouTube or Vimeo embed -->
+        <iframe
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          title="Welcome HΩme Intro Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======= EVENTS ======= -->
-    <section id="events" class="events section">
-      <div class="wrap">
-        <h2>Upcoming Events</h2>
-        <div class="event-list" role="list">
-          <!-- Duplicate .event blocks to add more -->
-          <div class="event" role="listitem">
-            <div class="left">
-              <div class="title">Spellcasting Nights — Group Ceremony</div>
-              <div class="desc">Guided meditation, blessings, and collective intention</div>
-            </div>
-            <div class="right">Thu · 6:30–8:30pm</div>
+  <!-- SERVICES (you can edit/expand freely) -->
+  <section id="services" class="section">
+    <div class="wrap narrow">
+      <h2>Services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>60-Minute Energy Healing</h3>
+          <p>Gentle energetic alignment with light massage as guided. Restores flow, clarity, and calm.</p>
+        </article>
+        <article class="card">
+          <h3>90-Minute IFS + Energy</h3>
+          <p>Guided Internal Family Systems parts work blended with energy healing for deep integration.</p>
+        </article>
+        <article class="card">
+          <h3>Massage + Energy Healing</h3>
+          <p>60 or 90 minutes of therapeutic massage infused with subtle energy clearing and nervous-system soothing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS (sample; edit anytime) -->
+  <section id="events" class="section">
+    <div class="wrap narrow">
+      <h2>Events</h2>
+      <div class="event-list">
+        <div class="event">
+          <div>
+            <div class="title">Spellcasting Nights — Group Ceremony</div>
+            <div class="desc">Guided meditation, blessings, and collective intention</div>
           </div>
-
-          <div class="event" role="listitem">
-            <div class="left">
-              <div class="title">Full Moon Circle</div>
-              <div class="desc">Temple ritual + energy sync</div>
-            </div>
-            <div class="right">Every Full Moon</div>
+          <div class="time">Thu · 6:30–8:30pm</div>
+        </div>
+        <div class="event">
+          <div>
+            <div class="title">Full Moon Circle</div>
+            <div class="desc">Temple ritual + energy sync</div>
           </div>
+          <div class="time">Every Full Moon</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======= TESTIMONIALS ======= -->
-    <section id="testimonials" class="testimonials section">
-      <div class="wrap">
-        <h2>Testimonials</h2>
-        <div class="test-grid">
-          <blockquote class="test">“This space awakened something ancient in me — a remembrance of love beyond words.” <span>— Elara M.</span></blockquote>
-          <blockquote class="test">“Every session feels like coming home to myself. Sacred, grounded, and real.” <span>— Orion S.</span></blockquote>
-        </div>
-      </div>
-    </section>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <div class="wrap narrow">
+      <h2>Testimonials</h2>
 
-    <!-- ======= BOOKING ======= -->
-    <section id="book" class="book section">
-      <div class="wrap center">
-        <h2>Book a Session</h2>
-        <p>Reserve your time below. In-person sessions · <span class="city">CITY_NAME</span></p>
-        <a class="btn big" href="https://calendly.com/tylernegrete" target="_blank" rel="noopener">Schedule via Calendly</a>
-      </div>
-    </section>
-  </main>
+      <blockquote class="quote">
+        “Tyler is an extraordinary healer and a deeply intuitive guide. He is lighthearted and playful, his heart is pure, and his spiritual wisdom runs deep. He speaks truth with clarity and compassion, making his guidance easy to receive and integrate.
+        The healing frequencies that move through him are profoundly powerful—truly beyond words. They must be experienced to be understood.
+        Working with Tyler is both grounding and expansive. I feel safe, seen, and deeply supported in his presence, and I trust him completely to walk with me on my healing journey.”
+        <span class="cite">— Karina Z</span>
+      </blockquote>
+
+      <blockquote class="quote">
+        “I met Tyler at an energy healing circle, and immediately felt comfortable in his presence. He brings such an open heart and grounded energy into his practice that makes you feel at ease and safe. Tyler has this intuitive gift of knowing what you need in that moment of his energy work. This gift and his open-hearted presence helps transmute any lower energies, aligning your energy with love and helps bring you into an open-hearted presence of grounded peace and inner alignment. It's truly a gift to receive his healing energy!”
+        <span class="cite">— Stacey B</span>
+      </blockquote>
+
+      <blockquote class="quote">
+        “When you look for energy work, the energy & intention of the practitioner is paramount. Tyler is full of love & tenderness & compassion, which is an outpouring of love for humanity & life at large. (Not a creepy, ego-driven, ‘shaman’ who wants your money & your devotion—you may know & fear the type).
+        He has developed his practice through a unique/personal mix of traditions & insight/inner work. The blessings he has given me have connected me to/put me in touch with an ancient, powerful, confident version of myself that had been lost/was not so present within me.
+        And his work absolutely arises from/is connected to your being, which means he is coming to you with presence—co-creating your healing with you/personalizing your experience.
+        Love & healing to you all.”
+        <span class="cite">— Megan H</span>
+      </blockquote>
+
+      <blockquote class="quote">
+        “Tyler’s healing experience is one of the most refreshing invigorating clearest experiences I’ve accessed on my healing path. I seek him out anytime I need an upgrade — his touch always delivers.”
+        <span class="cite">— Steve S</span>
+      </blockquote>
+
+      <blockquote class="quote">
+        “Tyler is a natural healer. His loving presence and ability to connect to divine healing energy is profound. I have had the lucky opportunity to work with and alongside Tyler many times. He has always been a grounding and loving presence to the community he serves as well as for myself. Anyone with the lucky opportunity to work with Tyler will no doubt experience his extraordinary healing gifts and loving heart.”
+        <span class="cite">— Michelle K</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="section">
+    <div class="wrap narrow center">
+      <h2>Book a Session</h2>
+      <p>In-person sessions · Schedule below</p>
+      <a class="btn big" href="https://calendly.com/tylernegrete" target="_blank" rel="noopener">Schedule via Calendly</a>
+    </div>
+  </section>
 
   <footer class="footer">
-    <div class="wrap center">
+    <div class="wrap narrow center">
       © 2025 Welcome HΩme Healing Arts · All Rights Reserved
     </div>
   </footer>
