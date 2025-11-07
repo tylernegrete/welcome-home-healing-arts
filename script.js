@@ -1,103 +1,44 @@
-/* Smooth embers + candle-crackle toggle (no audio file needed) */
-
-// ------ Floating embers ------
-(function embers(){
-  const field = document.getElementById('embers');
-  if(!field) return;
-  const spawn = () => {
-    const s = document.createElement('span');
-    s.className = 'ember';
-    s.style.left = Math.random()*100 + '%';
-    s.style.bottom = (Math.random()*12) + '%';
-    s.style.animationDuration = (5 + Math.random()*4).toFixed(2) + 's';
-    field.appendChild(s);
-    setTimeout(()=> s.remove(), 9000);
-  };
-  // initial scatter
-  for(let i=0;i<18;i++) spawn();
-  setInterval(spawn, 400);
+// subtle parallax on hero banner
+(function(){
+  const banner = document.querySelector('.hero-banner');
+  const hero = document.querySelector('.hero');
+  function onScroll(){
+    const rect = hero.getBoundingClientRect();
+    const winH = window.innerHeight || document.documentElement.clientHeight;
+    if(rect.bottom > 0 && rect.top < winH){
+      const progress = (winH - rect.top) / (winH + rect.height);
+      const translate = (progress * 16 - 8);
+      banner.style.transform = `translate3d(0, ${translate}px, 0)`;
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 })();
 
-
-// ------ Candle crackle via Web Audio (procedural noise bursts) ------
-let audioCtx, masterGain, running = false, crackleTimer;
-
-/* Create a soft crackle using random envelope bursts of filtered noise */
-function startCrackle(){
-  if(running) return;
-  running = true;
-  if(!audioCtx){
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    masterGain = audioCtx.createGain();
-    masterGain.gain.value = 0.08; // overall volume (gentle)
-    masterGain.connect(audioCtx.destination);
-  }
-
-  const makeCrackle = () => {
-    if(!running) return;
-    // White noise buffer
-    const bufferSize = 0.08; // seconds per burst
-    const sampleRate = audioCtx.sampleRate;
-    const buffer = audioCtx.createBuffer(1, sampleRate*bufferSize, sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i=0; i<data.length; i++){
-      // sparse spiky noise
-      const rnd = Math.random();
-      data[i] = (rnd > 0.985 ? (Math.random()*2-1) * 0.9 : (Math.random()*2-1) * 0.02);
-    }
-
-    const src = audioCtx.createBufferSource();
-    src.buffer = buffer;
-
-    // gentle band-pass to make it crackly, not hissy
-    const bp = audioCtx.createBiquadFilter();
-    bp.type = 'bandpass';
-    bp.frequency.value = 2500 + Math.random()*1500;
-    bp.Q.value = 1.2;
-
-    // envelope
-    const gain = audioCtx.createGain();
-    const now = audioCtx.currentTime;
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.4 + Math.random()*0.4, now + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + (0.04 + Math.random()*0.1));
-
-    src.connect(bp);
-    bp.connect(gain);
-    gain.connect(masterGain);
-
-    src.start();
-    src.stop(now + 0.15);
+// floating dust particles
+(function(){
+  const field = document.getElementById('dust');
+  if(!field) return;
+  const style = document.createElement('style');
+  style.textContent = `
+    .speck{position:absolute; width:3px; height:3px; border-radius:50%;
+      background:#f3d58b; box-shadow:0 0 10px #cfae52, 0 0 22px rgba(243,213,139,.7);
+      opacity:.85; animation:risedrift 10s ease-in-out forwards}
+    @keyframes risedrift{
+      0%{ transform: translate(0,0) scale(1); opacity:.85 }
+      50%{ transform: translate(10px,-50px) scale(1.3); opacity:.6 }
+      100%{ transform: translate(-10px,-120px) scale(1.05); opacity:0 }
+    }`;
+  document.head.appendChild(style);
+  const spawn = () => {
+    const s = document.createElement('span');
+    s.className = 'speck';
+    s.style.left = Math.random()*100 + '%';
+    s.style.bottom = (Math.random()*20 - 5) + '%';
+    s.style.animationDuration = (6 + Math.random()*6).toFixed(2) + 's';
+    field.appendChild(s);
+    setTimeout(()=> s.remove(), 14000);
   };
-
-  // irregular bursts (like a candle)
-  crackleTimer = setInterval(()=>{
-    const bursts = 1 + Math.floor(Math.random()*3);
-    for(let i=0;i<bursts;i++){
-      setTimeout(makeCrackle, Math.random()*120);
-    }
-  }, 160);
-}
-
-function stopCrackle(){
-  running = false;
-  if(crackleTimer) clearInterval(crackleTimer);
-}
-
-// Toggle button
-const btn = document.getElementById('soundToggle');
-if(btn){
-  btn.addEventListener('click', async () => {
-    if(!running){
-      await (audioCtx?.resume?.() ?? Promise.resolve());
-      startCrackle();
-      btn.textContent = '🔊 Candle crackle: On';
-    } else {
-      stopCrackle();
-      btn.textContent = '🔈 Candle crackle: Off';
-    }
-  });
-}
-
-// Optional: auto-resume on user interaction for iOS
-window.addEventListener('touchstart', () => audioCtx?.resume?.(), {once:true});
+  for(let i=0;i<20;i++) spawn();
+  setInterval(spawn, 600);
+})();
