@@ -3,7 +3,7 @@
   const hero = document.querySelector('.hero');
   function onScroll(){
     const rect = hero.getBoundingClientRect();
-    const trigger = rect.bottom <= 10; // when hero leaves viewport
+    const trigger = rect.bottom <= window.innerHeight * 0.9;
     document.body.classList.toggle('past-hero', trigger);
   }
   window.addEventListener('scroll', onScroll, {passive:true});
