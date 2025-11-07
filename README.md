@@ -1,4 +1,4 @@
-# Temple Parallax Site
+# Candlelit Temple Site (Final)
 - Upload all files to a public GitHub repo.
-- Ensure your banner image is named **banner.png** (replace the placeholder).
-- Settings → Pages → main branch / (root).
+- Ensure your header image is named **banner.png** (already included).
+- GitHub Pages: Settings → Pages → Deploy from a branch → main / (root).
