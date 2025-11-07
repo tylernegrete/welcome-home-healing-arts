@@ -13,7 +13,12 @@ html,body{margin:0;padding:0}
 body{
   font-family:'Quicksand',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   color:var(--cream);
-  background: linear-gradient(180deg, #1c120b, var(--sand-deep));
+  background:
+    url('https://www.transparenttextures.com/patterns/sandpaper.png'),
+    radial-gradient(1400px 900px at 50% 0%, rgba(89,64,34,0.8), transparent 60%),
+    linear-gradient(180deg, #3a2614, #1c120b 60%, #2d2014);
+  background-size: auto, cover, cover;
+  background-repeat: repeat, no-repeat, no-repeat;
   overflow-x:hidden;
 }
 
