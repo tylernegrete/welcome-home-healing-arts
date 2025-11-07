@@ -1,4 +1,2 @@
-# Candlelit Temple Site (Final)
-- Upload all files to a public GitHub repo.
-- Ensure your header image is named **banner.png** (already included).
-- GitHub Pages: Settings → Pages → Deploy from a branch → main / (root).
+# Welcome HΩme Healing Arts — Golden Temple Edition
+Upload all files to your GitHub Pages repo (root folder). The background is now always visible and textured with a golden sandstone look.
