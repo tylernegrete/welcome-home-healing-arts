@@ -1,4 +1,3 @@
-# Welcome HΩme Healing Arts — Amber Temple (Polished Marble)
-- Upload these files to your GitHub Pages repo (root).
-- Replace YOUR_VIDEO_ID in index.html with your YouTube ID.
-- Banner is embedded in a recessed stone frame; headings and placards use warm amber carving.
+# Welcome HΩme Healing Arts — Amber Temple (Natural Marble)
+Upload all files to your GitHub Pages repo root.
+The WELCOME is engraved and bright. Background uses large-grained natural amber marble with subtle light gradient.
