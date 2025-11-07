@@ -4,38 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome HΩme Healing Arts</title>
+  <meta name="description" content="Energy healing, massage, and heart-centered support by Tyler — Welcome HΩme Healing Arts."/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="candle-flicker"></div>
-  <div id="dust" class="dust"></div>
+  <!-- Ambient layers -->
+  <div class="candle-flicker" aria-hidden="true"></div>
+  <div id="dust" class="dust" aria-hidden="true"></div>
+  <div class="stone-texture" aria-hidden="true"></div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <img src="banner.png" alt="Welcome HΩme Healing Arts banner" class="hero-banner" />
-      <div class="vignette"></div>
+      <img src="banner.png" alt="WELCOME HΩME HEALING ARTS" class="hero-banner" />
+      <div class="vignette" aria-hidden="true"></div>
     </div>
   </header>
 
-  <section id="welcome" class="section stone">
+  <!-- BIG ENGRAVED WELCOME -->
+  <section class="section stone">
     <div class="wrap">
-      <h2 class="etched">WELCOME</h2>
-      <div class="carved">
-        <p>Hi there, friend! Welcome to the internet home of my offerings :) I'm happy you're here!</p>
-        <p>Energy healing has been such a profound part of my healing journey, and I'm really passionate about offering it to people. I find it to be such a powerful way to heal and grow.</p>
-        <p>I'm so happy to be here to offer you a sacred, heart-centered space where we can work together to further your healing journey. I find it potent and love to weave energy healing and massage together, listening to my intuition and any guidance from your higher self to facilitate deep healing of energy within your body and mind. My intention is always to let my love flow through my practice and guide me along the way as I let my intuition flow and trust. I have many other healing modalities I like ...
+      <h1 class="engraved">WELCOME</h1>
+      <div class="placard">
+        <p>Hi there, friend! Welcome to the internet home of my offerings :) I'm happy you're here!</p><p>Energy healing has been such a profound part of my healing journey, and I'm really passionate about offering it to people. I find it to be such a powerful way to heal and grow.</p><p>I'm so happy to be here to offer you a sacred, heart-centered space where we can work together to further your healing journey. I find it potent and love to weave energy healing and massage together, listening to my intuition and any guidance from your higher self to facilitate deep healing of energy within your body and mind. My intention is always to let my love flow through my practice and guide me along the way as I let my intuition flow and trust. I have many other healing modalities I like to weave in if they are called as well, such as the Ho'oh Pono Pono prayer or Internal Family Systems parts work. If you'd like to learn more about the four energy healing modalities I'm attuned to and what I'm offering, please click the video below! Love you!</p>
       </div>
     </div>
   </section>
 
+  <!-- VIDEO -->
   <section id="video" class="section stone">
     <div class="wrap">
-      <div class="niche">
-        <div class="niche-inner">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Welcome HΩme Intro Video" allowfullscreen></iframe>
-          </div>
+      <div class="placard niche">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Welcome HΩme Intro Video" allowfullscreen></iframe>
         </div>
       </div>
       <div class="center mt-12">
@@ -44,19 +46,20 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services" class="section stone">
     <div class="wrap">
       <h2 class="etched">SERVICES</h2>
-      <div class="tablets">
-        <article class="tablet">
-          <h3>60 Minute Intuitive Elemental Energy Healing & Micro Massage</h3>
+      <div class="grid">
+        <article class="placard">
+          <h3>60 Minute Intuitive Elemental Energy Healing &amp; Micro Massage</h3>
           <p>As guided by Spirit I will work on getting your energy body feeling yummy and aligned. Some massage will be used, but the focus is on the energy healing.</p>
         </article>
-        <article class="tablet">
-          <h3>90 Minute Intuitive Elemental Energy Healing & Full Body Massage</h3>
+        <article class="placard">
+          <h3>90 Minute Intuitive Elemental Energy Healing &amp; Full Body Massage</h3>
           <p>A longer form healing weaving in deep tissue, full body massage along with energy healing.</p>
         </article>
-        <article class="tablet">
+        <article class="placard">
           <h3>60 or 90 Minute Intuitive Coaching and Emotional Support Session</h3>
           <p>If you have a specific thing to work through I can intuit support for you. This can look many ways, often resulting in more talking and/or a deep dive into parts work.</p>
         </article>
@@ -64,18 +67,20 @@
     </div>
   </section>
 
+  <!-- EVENTS -->
   <section id="events" class="section stone">
     <div class="wrap">
       <h2 class="etched">EVENTS</h2>
-      <div class="tablet single">
+      <article class="placard">
         <div class="event-line">
           <div class="event-title">Spellcasting Nights — Group Ceremony</div>
           <div class="event-time">Every other Thursday · 6:30–8:30pm</div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
+  <!-- BOOK -->
   <section id="book" class="section stone">
     <div class="wrap center">
       <a class="btn gold big" href="https://calendly.com/tylernegrete" target="_blank" rel="noopener">BOOK A SESSION</a>
