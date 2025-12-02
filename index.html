@@ -1,126 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome HΩme Healing Arts</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Cinzel Decorative', serif;
-            background-color: #2b1b0e;
-            background-image: url('temple-bg.jpg');
-            background-size: cover;
-            color: #f6e1a0;
-            line-height: 1.6;
-            text-align: center;
-        }
-        header {
-            background: url('banner.png') no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
-        }
-        h1, h2, h3 {
-            text-shadow: 0 0 20px #ffb347;
-        }
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            background: rgba(60,30,10,0.85);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: inset 0 0 20px #d4a55c, 0 0 25px #8a4b08;
-        }
-        .button {
-            background-color: #d4a55c;
-            color: #2b1b0e;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 0 0 15px #ffb347;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: #ffcc70;
-            box-shadow: 0 0 25px #ffd480;
-        }
-        iframe {
-            width: 100%;
-            height: 480px;
-            border: none;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-        footer {
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(40, 20, 10, 0.95);
-            color: #f6e1a0;
-            text-shadow: 0 0 10px #b8860b;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Welcome Home • Tyler Negrete</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Welcome Home – a candlelit portal for heart-centered awakening, guidance, and community with Tyler."
+  />
+
+  <!-- Optional: classy fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #050309;
+      --bg-soft: #120b16;
+      --accent: #f5c371;
+      --accent-soft: rgba(245, 195, 113, 0.35);
+      --text-main: #f7f2ff;
+      --text-muted: #c6b8dd;
+      --card-bg: rgba(8, 5, 15, 0.9);
+      --border-soft: rgba(255, 220, 170, 0.3);
+      --radius-xl: 1.5rem;
+      --shadow-glow: 0 0 30px rgba(245, 195, 113, 0.45);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Candlelight background layer */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 200, 120, 0.35), transparent 60%),
+        radial-gradient(circle at bottom, rgba(130, 80, 255, 0.35), transparent 60%),
+        url("images/candles-bg.jpg") center/cover no-repeat fixed;
+      opacity: 0.4;
+      filter: blur(2px);
+      z-index: -2;
+    }
+
+    /* Dark overlay to keep text readable */
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+      z-index: -1;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.5rem 0 1.5rem;
+    }
+
+    .logo-text {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-left: 1.5rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr);
+      gap: 1.75rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-banner {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+      border: 1px solid var(--border-soft);
+    }
+
+    .hero-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-text {
+      max-width: 44rem;
+    }
+
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-family: "Cinzel", serif;
+      font-size: clamp(2rem, 3.2vw, 2.75rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .button-primary,
+    .button-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.35rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: radial-gradient(circle at top left, #ffe5b6, #f5c371);
+      color: #3a210f;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 40px rgba(245, 195, 113, 0.6);
+    }
+
+    .button-ghost {
+      border-color: var(--border-soft);
+      color: var(--text-main);
+      background: rgba(5, 3, 12, 0.7);
+    }
+
+    .button-ghost:hover {
+      background: rgba(15, 10, 30, 0.95);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SECTION + GLOWY BOXES */
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 40rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      position: relative;
+      padding: 1.4rem 1.3rem 1.35rem;
+      background: radial-gradient(circle at top left, rgba(255, 215, 160, 0.17), transparent 55%) var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.9), var(--shadow-glow);
+      backdrop-filter: blur(14px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      margin: 0.1rem 0 0.7rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 227, 190, 0.6);
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    /* Testimonials */
+
+    .testimonial {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.7rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    /* About / layout helpers */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .bullet-list {
+      padding-left: 1.2rem;
+      margin: 0.2rem 0 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .bullet-list li + li {
+      margin-top: 0.2rem;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .contact-box a.email-link {
+      font-size: 0.98rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-soft);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+      font-size: 0.78rem;
+      color: #8a7b9f;
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      header.site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        margin-top: 0.35rem;
+      }
+      nav a {
+        margin-left: 0;
+      }
+      .hero {
+        margin-top: 0.75rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg"></div>
+  <div class="page-overlay"></div>
 
-<header></header>
+  <div class="container">
+    <header class="site-header">
+      <div class="logo-text">Welcome Home</div>
+      <nav>
+        <a href="#offerings">Offerings</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<section>
-    <h1>WELCOME</h1>
-    <p>Hi there, friend! Welcome to the internet home of my offerings :) I'm happy you're here! 
-    Energy healing has been such a profound part of my healing journey, and I'm really passionate about offering it to people. 
-    I find it to be such a powerful way to heal and grow. I'm so happy to be here to offer you a sacred, heart-centered space where we can work together to further your healing journey. 
-    I find it potent and love to weave energy healing and massage together, listening to my intuition and any guidance from your higher self to facilitate deep healing of energy within your body and mind. 
-    My intention is always to let my love flow through my practice and guide me along the way as I let my intuition flow and trust. 
-    I have many other healing modalities I like to weave in if they are called as well, such as the Ho'oh Pono Pono prayer or Internal Family Systems parts work. 
-    If you'd like to learn more about the four energy healing modalities I'm attuned to and what I'm offering, please click the video below! Love you!</p>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-banner">
+        <!-- Replace banner.png with the actual filename/path of your banner -->
+        <img src="images/banner.png" alt="Welcome Home banner">
+      </div>
+      <div class="hero-text">
+        <div class="hero-eyebrow">A candlelit portal for the Great Remembering</div>
+        <h1 class="hero-title">Welcome Home to Your Own Magic</h1>
+        <p class="hero-subtitle">
+          Guided journeys, deep conversation, and living myth designed to help you
+          remember who you are, why you came, and how to bring more love into this world.
+        </p>
 
-    <iframe src="https://www.youtube.com/embed/" title="Intro Video"></iframe>
+        <div class="hero-cta">
+          <a class="button-primary" href="#contact">Book a Call</a>
+          <a class="button-ghost" href="#offerings">Explore Offerings</a>
+        </div>
+        <p class="hero-note">
+          Sessions are held online, by candlelight, for humans who feel the shift and are ready
+          to live their part of the story.
+        </p>
+      </div>
+    </section>
 
-    <a href="https://calendly.com/tylernegrete" class="button">Book a Session</a>
-</section>
+    <!-- OFFERINGS -->
+    <section id="offerings">
+      <h2 class="section-title">Offerings</h2>
+      <p class="section-subtitle">
+        Everything I share is built around one intention: to help you feel deeply at home in
+        your body, on this planet, and in this wild moment of the Great Remembering.
+      </p>
 
-<section>
-    <h2>OFFERINGS</h2>
-    <div>
-        <h3>60 Minute Intuitive Elemental Energy Healing & Micro Massage</h3>
-        <p>As guided by Spirit I will work on getting your energy body feeling yummy and aligned. Some massage will be used, but the focus is on the energy healing.</p>
-    </div>
-    <div>
-        <h3>90 Minute Intuitive Elemental Energy Healing & Full Body Massage</h3>
-        <p>A longer form healing weaving in deep tissue, full body massage along with energy healing.</p>
-    </div>
-    <div>
-        <h3>60 or 90 Minute Intuitive Coaching and Emotional Support Session</h3>
-        <p>If you have a specific thing to work through I can intuit support for you. This can look many ways, often resulting in more talking and/or a deep dive into parts work.</p>
-    </div>
-</section>
+      <div class="card-grid">
+        <article class="card">
+          <span class="pill">1&nbsp;:&nbsp;1 Guidance</span>
+          <h3>Personal Welcome Home Session</h3>
+          <p>
+            A 75–90 minute online session where we weave together conversation, guided
+            journeying, and practical next steps. Ideal if you feel like something big is
+            waking up in you and you want a grounded, mystical mirror.
+          </p>
+          <ul class="bullet-list">
+            <li>Clarify what’s shifting and what you’re really here for.</li>
+            <li>Release old stories and energetic weight you’re done carrying.</li>
+            <li>Receive simple practices to keep the magic alive in daily life.</li>
+          </ul>
+          <p><strong>Exchange:</strong> [add your rate here]</p>
+        </article>
 
-<section>
-    <h2>EVENTS</h2>
-    <p><strong>Spellcasting Nights - Group Ceremony</strong><br>6:30-8:30 Every other Thursday</p>
-</section>
+        <article class="card">
+          <span class="pill">Group Work</span>
+          <h3>Welcome Home Circles</h3>
+          <p>
+            Small, intimate gatherings where we practice being human together: breathing,
+            feeling, laughing, grieving, and remembering. Part ritual, part storytelling,
+            part cosmic strategy session.
+          </p>
+          <ul class="bullet-list">
+            <li>Live Zoom circles with guided practices.</li>
+            <li>Time for questions, shares, and real connection.</li>
+            <li>Perfect for sensitives, starseeds &amp; recovering overthinkers.</li>
+          </ul>
+          <p><strong>Exchange:</strong> [sliding scale / membership / etc.]</p>
+        </article>
 
-<section>
-    <h2>TESTIMONIALS</h2>
-    <p><em>"Tyler is an extraordinary healer and a deeply intuitive guide..."</em> – Karina Z</p>
-    <p><em>"I met Tyler at an energy healing circle, and immediately felt comfortable..."</em> – Stacey B</p>
-    <p><em>"When you look for energy work, the energy & intention of the practitioner is paramount..."</em> – Megan H</p>
-    <p><em>"Tyler’s healing experience is one of the most refreshing..."</em> – Steve Schneider</p>
-    <p><em>"Tyler is a natural healer. His loving presence and ability to connect to divine healing energy is profound..."</em> – Michelle K</p>
-</section>
+        <article class="card">
+          <span class="pill">Ongoing Support</span>
+          <h3>Sophia-Guided Mentorship</h3>
+          <p>
+            A deeper container for those who feel called to steward the New Earth in their own
+            way—creators, healers, leaders, and quiet grid-workers who want consistent support.
+          </p>
+          <ul class="bullet-list">
+            <li>Monthly 1:1 sessions + check-ins between.</li>
+            <li>Support with creative projects, life re-design, and walking your path.</li>
+            <li>Rooted in love, humor, and fierce honesty.</li>
+          </ul>
+          <p><strong>Exchange:</strong> [add your structure here]</p>
+        </article>
+      </div>
+    </section>
 
-<section>
-    <a href="https://calendly.com/tylernegrete" class="button">Book Another Session</a>
-</section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <h2 class="section-title">What People Experience</h2>
+      <p class="section-subtitle">
+        A few reflections from humans who have sat in the candlelight with me.  
+        Replace these with the exact testimonials you’ve already collected.
+      </p>
 
-<footer>
-    <p>© 2025 Welcome HΩme Healing Arts. All rights reserved.</p>
-</footer>
+      <div class="card-grid">
+        <article class="card">
+          <p class="testimonial">
+            “I walked in feeling fried, disconnected, and low-key terrified about the future.
+            I left our session feeling like I was plugged back into Source. Grounded, clear,
+            and strangely excited to be alive right now.”
+          </p>
+          <div class="testimonial-name">— Client, 1:1 Session</div>
+        </article>
 
+        <article class="card">
+          <p class="testimonial">
+            “It felt like talking to a future version of myself who already made it through
+            the storm. Tyler holds this rare mix of wizard-level vision and very practical
+            support. I remembered why I came here.”
+          </p>
+          <div class="testimonial-name">— Group Participant</div>
+        </article>
+
+        <article class="card">
+          <p class="testimonial">
+            “The space was so loving and real. No bypassing, no spiritual performance.
+            Just truth, laughter, tears, and a sense of being welcomed all the way home.”
+          </p>
+          <div class="testimonial-name">— Mentorship Client</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Tyler</h2>
+      <div class="two-column">
+        <div>
+          <p>
+            Hey, I’m Tyler. Part wizard, part neighbor, part slightly feral mystic.
+            I build bridges between worlds: science and spirit, myth and daily life,
+            cosmic prophecy and doing the dishes.
+          </p>
+          <p>
+            For the last several years I’ve been listening closely to Sophia—the Great
+            Mother, the living wisdom inside everything—and experimenting with how to
+            actually live from that place in a very real, messy human life.
+          </p>
+          <p>
+            Welcome Home is my way of sharing that: a candlelit space where we can
+            remember together, laugh together, and design lives that feel like a true
+            yes in our bones.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What I Care About</h3>
+          <ul class="bullet-list">
+            <li>Keeping spirituality warm, human, and grounded in real life.</li>
+            <li>Helping sensitive, visionary people trust their own connection.</li>
+            <li>Weaving myth, science, and Sophia into a shared story of hope.</li>
+            <li>Building community for the Great Remembering, one heart at a time.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="card contact-box">
+        <p>
+          Ready to book a session, ask a question, or explore collaboration?  
+          Send me a note and share a little bit about where you are on your path.
+        </p>
+        <p>
+          Email:
+          <a class="email-link" href="mailto:youremail@example.com">
+            youremail@example.com
+          </a>
+        </p>
+        <p>
+          You can also include your time zone and a few windows that work for a
+          20-minute intro call.
+        </p>
+        <a class="button-primary" href="mailto:youremail@example.com?subject=Welcome%20Home%20Session">
+          Start the Conversation
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Welcome Home • Tyler Negrete
+    </footer>
+  </div>
+
+  <script>
+    // simple dynamic year for the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
